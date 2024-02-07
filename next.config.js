@@ -60,6 +60,9 @@ const securityHeaders = [
 module.exports = () => {
   const plugins = [withContentlayer, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
+    output: 'standalone', // This line is hypothetical based on your error message.
+    basePath: '/bhenriqu1.github.io', // This should match your repository name for GitHub Pages
+    assetPrefix: '/bhenriqu1.github.io/', // This should match your repository name for GitHub Pages
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     eslint: {
