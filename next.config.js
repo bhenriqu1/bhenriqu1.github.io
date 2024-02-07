@@ -64,7 +64,6 @@ module.exports = () => {
     assetPrefix: '/bhenriqu1.github.io/', // This should match your repository name for GitHub Pages
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    output: 'export',
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
