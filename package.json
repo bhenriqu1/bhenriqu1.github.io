@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node ./scripts/postbuild.mjs",
-    "start": "next start",
-    "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts"
+    "build-and-export": "yarn build && yarn postbuild"
   },
   "dependencies": {
     "@next/bundle-analyzer": "14.1.0",
