@@ -1,20 +1,30 @@
-// Import the entire fs-extra package as a CommonJS module
 import pkg from 'fs-extra';
 const { copySync } = pkg;
 
 async function postbuild() {
-  // Your existing postbuild logic
-  // ...
-
-  // Copy the static files from the .next output directory to the out directory
   try {
+    // Copy the "pages" from the .next output directory to the out directory
     copySync('./.next/server/pages', './out', {
       overwrite: true,
       recursive: true,
     });
-    console.log('Static files have been copied to the out directory.');
+
+    // Additionally, copy the "static" folder which includes static chunks and assets
+    copySync('./.next/static', './out/_next/static', {
+      overwrite: true,
+      recursive: true,
+    });
+
+    // Any other directories or files you need to copy should be done here
+    // For example, if you have a public folder:
+    copySync('./public', './out', {
+      overwrite: true,
+      recursive: true,
+    });
+
+    console.log('All necessary files have been copied to the out directory.');
   } catch (err) {
-    console.error('Error copying static files:', err);
+    console.error('Error copying files:', err);
   }
 }
 
